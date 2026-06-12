@@ -1,0 +1,16 @@
+# Robots.txt for CGI Works — Architectural Visualisation Studio
+User-agent: *
+Allow: /
+Disallow: /assets/images/thumb/
+Crawl-delay: 1
+
+# Search engine sitemaps
+Sitemap: https://www.cgiworks.co.uk/sitemap.xml
+
+# Block common malicious bots
+User-agent: AhrefsBot
+Disallow: /
+User-agent: SemrushBot
+Disallow: /
+User-agent: MJ12bot
+Disallow: /
