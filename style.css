@@ -103,11 +103,15 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   background: var(--accent);
   display: inline-block;
 }
-/* Hide the "CGI Works" wordmark until the user scrolls — keeps the hero clean.
-   The accent dot stays so the brand mark is still present. */
-.nav:not(.scrolled) .nav__brand span:first-child {
+/* While at the top of the page (no scroll), hide the entire nav so the hero
+   is unobstructed. The nav fades back in as soon as the user scrolls. */
+.nav:not(.scrolled) {
   opacity: 0;
   pointer-events: none;
+  transition: opacity .35s var(--ease);
+}
+.nav.scrolled {
+  opacity: 1;
 }
 .nav__links {
   display: flex; gap: 2.25rem; align-items: center;
@@ -169,8 +173,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   display: flex;
   align-items: flex-end;
   padding: var(--pad-x);
-  /* Generous top padding gives the title room to breathe below the nav */
-  padding-top: clamp(7rem, 14vh, 10rem);
+  padding-top: clamp(3rem, 6vh, 5rem);
   padding-bottom: clamp(2rem, 6vw, 5rem);
 }
 .hero__media {
